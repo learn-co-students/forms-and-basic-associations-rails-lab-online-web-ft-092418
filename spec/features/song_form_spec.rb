@@ -21,6 +21,7 @@ describe "the song form", :type => :feature do
   it 'creates a song with a genre' do
     visit '/songs/new'
     fill_in :song_title, with: 'Little Earthquakes'
+  #  binding.pry
     select 'Alternative', from: 'song_genre_id'
     find('input[name="commit"]').click
     expect(Song.last.genre.name).to eq 'Alternative'
